@@ -8,6 +8,7 @@ public class Graph {
     
     //BFS
     private Queue theQueue;
+    private Stack theStack;
     
     public void bfs(){
         System.out.print("Visit by using" + " BFS algorithm : ");
@@ -43,6 +44,7 @@ public class Graph {
         //thisStack = new Stack(MAX_VERTS);
         //thisStack = new Stack(MAX_VERTS);
         theQueue = new Queue(MAX_VERTS);
+        theStack = new Stack();
     }
     
     public void addVertex(char label){
@@ -68,6 +70,29 @@ public class Graph {
     
     public void displayVertex(int v){
         System.out.print(vertexList[v].label + " ");
+    }
+    
+    public void dfs() {
+        System.out.print("Visit by using" + " DFS algorithm : ");
+        vertexList[0].wasVisited = true;
+        displayVertex(0);
+        theStack.push(0);
+        
+        while(!theStack.isEmpty()) {
+            int v = getAdjUnvisitedVertex(theStack.peek());
+            if (v == -1) {
+                theStack.pop();
+            } else {
+                vertexList[v].wasVisited = true;
+                displayVertex(v);
+                theStack.push(v);
+            }
+        }
+        
+        // jika stack kosong
+        for (int j = 0; j < nVerts; j++) {
+            vertexList[j].wasVisited = false;
+        }
     }
     
     public int getAdjUnvisitedVertex(int v){
