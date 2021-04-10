@@ -12,7 +12,6 @@ public class Latihan2Minggu5 {
         theGraph.addVertex('E'); //4
         
         
-        
         theGraph.addEdge(0, 1); //AB
         theGraph.addEdge(1, 2); //BC
         theGraph.addEdge(2, 3); //AD
@@ -20,6 +19,7 @@ public class Latihan2Minggu5 {
         
         
         theGraph.bfs();
+        theGraph.dfs();
     }
     
 }
