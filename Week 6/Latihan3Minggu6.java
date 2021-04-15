@@ -2,20 +2,16 @@ package latihan3minggu6;
 
 public class Latihan3Minggu6 {
     public static void selectionSort(int[] arr){
-        for(int i = 0; i < arr.length - 1; i++){
-            int minimum = arr[i];
-            int index = i;
-            for(int j = i + 1; j < arr.length; j++){
-                if(minimum > arr[j]){
-                    minimum = arr[j];
-                    index = j;
-                }
-            }
-            if(index != i){
-                System.out.println(" A : " + arr[i] + " > " + " B : " + arr[index]);
-                arr[index] = arr[i];
-                arr[i] = minimum;
-            }
+         int n = arr.length;
+        for (int i = 0; i < n; i++){
+            int min_idx = i;
+            for (int j = i+1; j < n; j++)
+                if (arr[j] < arr[min_idx])
+                    min_idx = j;
+            System.out.println(" A : " + arr[i] + " > " + " B : " + arr[min_idx]);
+            int temp = arr[min_idx];
+            arr[min_idx] = arr[i];
+            arr[i] = temp;
         }
     }
 
